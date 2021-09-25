@@ -9,16 +9,8 @@ namespace FeldsparServer
     {
         public static void Main()
         {
-			using (var server = new ResponseSocket())
-			{
-				server.Bind("tcp://*:5556");
-				Console.WriteLine("Waiting...");
-				Console.WriteLine();
-				string msg = server.ReceiveFrameString();
-				Console.WriteLine("From Client: {0}", msg);
-				Console.WriteLine();
-				server.SendFrame("ack");
-			}
+			//new PublisherMessageBus().Send();
+			new MessageBus().Receive();
 
 			// Send
 			//using (var client = new RequestSocket())
