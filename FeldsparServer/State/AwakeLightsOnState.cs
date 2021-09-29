@@ -8,6 +8,6 @@ namespace FeldsparServer.State
 {
 	public class AwakeLightsOnState : BaseState
 	{
-
+		
 	}
 }

@@ -8,11 +8,15 @@ namespace FeldsparServer.DataObjects
 {
 	public abstract class BaseDataObject
 	{
-		public BaseDataObject(string name)
+		public BaseDataObject(string name, string topic)
 		{
 			Name = name;
+			Topic = topic;
 		}
 
 		public string Name { get; set; }
+
+		public string Topic { get; set; }
+
 	}
 }

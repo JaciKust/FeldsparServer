@@ -9,29 +9,33 @@ namespace FeldsparServer.Messaging
 {
 	public class MessageBus : IMessageBus
 	{
-		public MessageBus()
+		private static MessageBus _instance;
+
+		public static MessageBus Instance
+		{
+			get 
+			{
+				if (_instance == null) {
+					_instance = new MessageBus();
+				}
+			return _instance; 
+			}
+		}
+
+		private MessageBus()
 		{
 			StartReceive();
 		}
 
-		public void Send()
+		public void Send(IDataObject dataObject, string topic)
 		{
 			using (var publisher = new PublisherSocket())
 			{
 				publisher.Bind("tcp://*:5556");
-
-				int i = 0;
-
-				while (true)
-				{
-					Console.WriteLine($"Sending: {i}");
-					publisher
-						.SendMoreFrame("A") // Topic
-						.SendFrame(i.ToString()); // Message
-
-					i++;
-					Thread.Sleep(1000);
-				}
+				Console.WriteLine($"Sending: [json object]");
+				publisher
+					.SendMoreFrame(topic) // Topic
+					.SendFrame(DataObjectParser.ToJson(dataObject)); // Message
 			}
 		}
 

@@ -8,6 +8,10 @@ namespace FeldsparServer.State
 {
 	public interface IState
 	{
-		
+		public void OnTick(DateTime currentTime);
+		public void OnStateEnter();
+		public void OnStateLeave();
+
+		public void HandleMessage();
 	}
 }

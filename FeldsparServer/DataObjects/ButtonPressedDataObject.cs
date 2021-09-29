@@ -14,7 +14,7 @@ namespace FeldsparServer.DataObjects
 		string category,
 		int triggerPin,
 		double buttonPressTime
-		) : base(nameof(ButtonPressedDataObject))
+		) : base(nameof(ButtonPressedDataObject), Topics.ButtonPress)
 		{
 			ButtonName = buttonName;
 			Group = group;

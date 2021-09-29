@@ -13,7 +13,7 @@ namespace FeldsparServer.DataObjects
 			string[] lightMacAddresses,
 			int[] rgbColor, 
 			double transitionTimeSeconds
-		) : base(nameof(LightStateDataObject))
+		) : base(nameof(LightStateDataObject), Topics.LifxCommand)
 		{
 			LightIpAddresses = lightIpAddresses;
 			LightMacAddresses = lightMacAddresses;
