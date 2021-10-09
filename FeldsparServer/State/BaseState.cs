@@ -8,9 +8,11 @@ namespace FeldsparServer.State
 {
 	public abstract class BaseState : IState
 	{
-		public abstract void OnTick();
 		public abstract void OnStateEnter();
 		public abstract void OnStateLeave();
 
+		public abstract void OnTick(DateTime currentTime);
+
+		public abstract void HandleMessage();
 	}
 }

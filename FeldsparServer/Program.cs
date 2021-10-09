@@ -14,13 +14,14 @@ namespace FeldsparServer
 			IMessageBus mb = MessageBus.Instance;
 
 			FeldsparRunner runner = new FeldsparRunner(mb);
-			
-			while (true) {
-				Thread.Sleep(1000);
-				Console.WriteLine("\t\ttick");
+			Pushover p = new Pushover();
+			p.Send("Hello Friend!");
+			//while (true) {
+			//	Thread.Sleep(1000);
+			//	Console.WriteLine("\t\ttick");
 
-				runner.OnTick(DateTime.Now);
-			}
+			//	runner.OnTick(DateTime.Now);
+			//}
 		}
 	}
 }

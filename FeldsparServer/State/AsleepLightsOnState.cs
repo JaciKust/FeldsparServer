@@ -8,5 +8,24 @@ namespace FeldsparServer.State
 {
 	public class AsleepLightsOnState : BaseState
 	{
+		public override void HandleMessage()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void OnStateEnter()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void OnStateLeave()
+		{
+			throw new NotImplementedException();
+		}
+
+		public override void OnTick(DateTime currentTime)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
