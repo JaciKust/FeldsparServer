@@ -5,11 +5,9 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeldsparServer", "FeldsparServer\FeldsparServer.csproj", "{1C483886-F1A6-417A-8383-F51D228A72B9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeldsparService", "FeldsparService\FeldsparService.csproj", "{BD7A9A9A-15BB-4D85-B30C-C61D5B385CF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaundryService", "LaundryService\LaundryService.csproj", "{273AF9BB-4817-4AD9-87BF-F0E6DF34D8F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaundryService", "LaundryService\LaundryService.csproj", "{273AF9BB-4817-4AD9-87BF-F0E6DF34D8F4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaundryServiceUT", "LaundryServiceUT\LaundryServiceUT.csproj", "{C10DEBC2-3479-4719-9B4D-FFF7ACDDCB4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaundryServiceUT", "LaundryServiceUT\LaundryServiceUT.csproj", "{C10DEBC2-3479-4719-9B4D-FFF7ACDDCB4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		{1C483886-F1A6-417A-8383-F51D228A72B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C483886-F1A6-417A-8383-F51D228A72B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C483886-F1A6-417A-8383-F51D228A72B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD7A9A9A-15BB-4D85-B30C-C61D5B385CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD7A9A9A-15BB-4D85-B30C-C61D5B385CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD7A9A9A-15BB-4D85-B30C-C61D5B385CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD7A9A9A-15BB-4D85-B30C-C61D5B385CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{273AF9BB-4817-4AD9-87BF-F0E6DF34D8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{273AF9BB-4817-4AD9-87BF-F0E6DF34D8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{273AF9BB-4817-4AD9-87BF-F0E6DF34D8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -10,7 +10,6 @@ namespace FeldsparServer.Messaging
 			var parameters = new NameValueCollection {
 				{ "token", "agqui287q27ha4iown3dsrxtv3zovc" },
 				{ "user", "uooy74z4276zq22zu39g1zgbaxzj1a" },
-				{ "device", "JaciScribe" },
 				{ "message", message }
 			};
 

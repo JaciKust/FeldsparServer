@@ -2,10 +2,10 @@
 {
 	public static class Colors
 	{
-		public static int Dim { get; } = 50;
-		public static int Dark { get; } = 1;
-		public static int ColorMaximum { get; } = 255;
-		public static int ColorMinimum { get; } = 0;
+		public static byte Dim { get; } = 50;
+		public static byte Dark { get; } = 1;
+		public static byte ColorMaximum { get; } = 255;
+		public static byte ColorMinimum { get; } = 0;
 
 		public static Color Red { get; } = new Color(ColorMaximum, ColorMinimum, ColorMinimum);
 		public static Color Green { get; } = new Color(ColorMinimum, ColorMaximum, ColorMinimum);
@@ -29,7 +29,7 @@
 		public static Color DimWhite { get; } = new Color(Dim, Dim, Dim);
 		public static Color Black { get; } = new Color(ColorMinimum, ColorMinimum, ColorMinimum);
 
-		public static Color GetWhite(Kelvin kelvin, int whitePercent)
+		public static Color GetWhite(Kelvin kelvin, byte whitePercent)
 		{
 			return new Color(whitePercent, whitePercent, whitePercent, kelvin);
 		}

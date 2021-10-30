@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LifxNet" Version="2.2.0" />
     <PackageReference Include="NetMQ" Version="4.0.1.6" />
   </ItemGroup>
 
