@@ -6,7 +6,7 @@ namespace FeldsparServer.Messaging
 	{
 		event EventHandler<ButtonPressEventArgs> OnRecieve;
 
-		void Send(IDataObject dataObject, string topic);
+		void Send(IDataObject dataObject);
 		void StartReceive();
 		void StopReceive();
 	}

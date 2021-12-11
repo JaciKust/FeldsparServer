@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FeldsparServer.DataObjects
 {
-	public class ButtonPressedDataObject : BaseDataObject, IDataObject
+	public class ButtonPressedDataObject : BaseDataObject
 	{
 		public ButtonPressedDataObject(
 		string buttonName,
@@ -14,7 +15,7 @@ namespace FeldsparServer.DataObjects
 		string category,
 		int triggerPin,
 		double buttonPressTime
-		) : base(nameof(ButtonPressedDataObject), Topics.ButtonPress)
+		) : base(nameof(ButtonPressedDataObject), DataObjectTopic.ButtonPress)
 		{
 			ButtonName = buttonName;
 			Group = group;
@@ -28,5 +29,10 @@ namespace FeldsparServer.DataObjects
 		public string Category { get; set; }
 		public int TriggerPin { get; set; }
 		public double ButtonPressTime { get; set; }
+
+		public override string ToJson()
+		{
+			return JsonSerializer.Serialize(this);
+		}
 	}
 }

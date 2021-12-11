@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using FeldsparServer.DataObjects;
 using NetMQ;
@@ -10,32 +9,38 @@ namespace FeldsparServer.Messaging
 	public class MessageBus : IMessageBus
 	{
 		private static MessageBus _instance;
+		private readonly PublisherSocket _socket = null;
 
 		public static MessageBus Instance
 		{
-			get 
+			get
 			{
-				if (_instance == null) {
+				if (_instance == null)
+				{
 					_instance = new MessageBus();
 				}
-			return _instance; 
+				return _instance;
 			}
 		}
 
 		private MessageBus()
 		{
 			StartReceive();
+			_socket = new PublisherSocket();
+			_socket.Bind("tcp://*:5557");
 		}
 
-		public void Send(IDataObject dataObject, string topic)
+		public void Send(IDataObject dataObject)
 		{
 			using (var publisher = new PublisherSocket())
 			{
-				publisher.Bind("tcp://*:5556");
-				Console.WriteLine($"Sending: [json object]");
-				publisher
-					.SendMoreFrame(topic) // Topic
-					.SendFrame(DataObjectParser.ToJson(dataObject)); // Message
+				lock (this)
+				{
+					Console.WriteLine($"Sending: [json object]");
+					_socket
+						.SendMoreFrame("A")// dataObject.Topic) // Topic
+						.SendFrame(dataObject.ToJson()); // Message
+				}
 			}
 		}
 

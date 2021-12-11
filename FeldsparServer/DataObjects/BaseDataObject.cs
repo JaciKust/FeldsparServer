@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FeldsparServer.DataObjects
 {
-	public abstract class BaseDataObject
+	public abstract class BaseDataObject : IDataObject
 	{
 		public BaseDataObject(string name, string topic)
 		{
@@ -18,5 +18,6 @@ namespace FeldsparServer.DataObjects
 
 		public string Topic { get; set; }
 
+		public abstract string ToJson();
 	}
 }

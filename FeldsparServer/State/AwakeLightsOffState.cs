@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FeldsparServer.DataObjects;
 using FeldsparServer.Interactable;
+using FeldsparServer.Messaging;
 
 namespace FeldsparServer.State
 {
@@ -15,9 +16,11 @@ namespace FeldsparServer.State
 			return new AwakeLightsOnState();
 		}
 
-		public override void OnStateEnter(IState oldState)
+		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
 		{
 			LifxBulbs.AllLamps.TurnOff();
+			var controlPanelState = new PanelStateDataObject(PanelState.Minimal);
+			messageBus.Send(controlPanelState);
 		}
 
 		public override void OnStateLeave(IState newState)

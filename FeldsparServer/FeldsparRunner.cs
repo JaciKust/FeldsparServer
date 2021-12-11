@@ -46,7 +46,7 @@ namespace FeldsparServer
 			IState oldState = _currentState;
 
 			oldState.OnStateLeave(newState);
-			newState.OnStateEnter(oldState);
+			newState.OnStateEnter(oldState, _messageBus);
 
 			_currentState = newState;
 		}

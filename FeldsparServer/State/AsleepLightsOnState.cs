@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FeldsparServer.DataObjects;
+using FeldsparServer.Messaging;
 
 namespace FeldsparServer.State
 {
@@ -14,7 +15,7 @@ namespace FeldsparServer.State
 			throw new NotImplementedException();
 		}
 
-		public override void OnStateEnter(IState oldState)
+		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
 		{
 			throw new NotImplementedException();
 		}
