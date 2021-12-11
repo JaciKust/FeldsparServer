@@ -5,6 +5,7 @@ using NetMQ;
 using NetMQ.Sockets;
 using FeldsparServer.Messaging;
 using LifxNet;
+using FeldsparServer.Interactable;
 
 namespace FeldsparServer
 {
@@ -41,15 +42,8 @@ namespace FeldsparServer
 		static LifxNet.LifxClient client;
 		static void Main(string[] args)
 		{
-			var task = LifxNet.LifxClient.CreateAsync();
-			task.Wait();
-			client = task.Result;
-			//client.DeviceDiscovered += Client_DeviceDiscovered;
-			//client.DeviceLost += Client_DeviceLost;
-			//client.StartDeviceDiscovery();
-			LightBulb bulb = new LightBulb("192.168.0.206", new byte[] { 0xD0, 0x73, 0xD5, 0x2A, 0x93, 0x0C });
-
-			client.SetColorAsync(bulb, Colors.Red.LifxColor, 9000);
+			var bulb = LifxBulbs.alpha;
+			bulb.TurnOn(Colors.Blue);
 			Console.ReadKey();
 		}
 
