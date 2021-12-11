@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FeldsparServer.DataObjects;
 using FeldsparServer.Messaging;
 using FeldsparServer.State;
 
@@ -15,6 +16,7 @@ namespace FeldsparServer
 		public FeldsparRunner(IMessageBus messageBus)
 		{
 			_messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
+			_messageBus.OnRecieve += OnReceiveMessage;
 			Init();
 		}
 
@@ -28,9 +30,25 @@ namespace FeldsparServer
 			_currentState.OnTick(currentTime);
 		}
 
-		private void OnReceiveMessage(object sender, EventArgs e)
+		private void OnReceiveMessage(object sender, ButtonPressEventArgs e)
 		{
-			_currentState.HandleMessage();
+			IState newState = _currentState.HandleMessage(e.ButtonPressedData);
+			if (newState == null){
+				// If the returned state is null no further changes are neded. 
+				return;
+			}
+
+			SetState(newState);
+		}
+
+		private void SetState(IState newState)
+		{
+			IState oldState = _currentState;
+
+			oldState.OnStateLeave(newState);
+			newState.OnStateEnter(oldState);
+
+			_currentState = newState;
 		}
 	}
 }

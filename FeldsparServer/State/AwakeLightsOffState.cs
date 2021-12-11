@@ -3,29 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FeldsparServer.DataObjects;
+using FeldsparServer.Interactable;
 
 namespace FeldsparServer.State
 {
 	public class AwakeLightsOffState : BaseState
 	{
-		public override void HandleMessage()
+		public override IState HandleMessage(ButtonPressedDataObject buttonPressData)
 		{
-			throw new NotImplementedException();
+			return new AwakeLightsOnState();
 		}
 
-		public override void OnStateEnter()
+		public override void OnStateEnter(IState oldState)
 		{
-			throw new NotImplementedException();
+			LifxBulbs.AllLamps.TurnOff();
 		}
 
-		public override void OnStateLeave()
+		public override void OnStateLeave(IState newState)
 		{
-			throw new NotImplementedException();
+
 		}
 
 		public override void OnTick(DateTime currentTime)
 		{
-			throw new NotImplementedException();
+			// No-op
 		}
 	}
 }

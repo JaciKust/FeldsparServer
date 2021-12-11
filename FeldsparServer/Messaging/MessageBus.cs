@@ -56,7 +56,8 @@ namespace FeldsparServer.Messaging
 
 					var obj = DataObjectParser.FromJson<ButtonPressedDataObject>(msg);
 					Console.WriteLine($"Press Time: {obj.ButtonPressTime}");
-					OnRecieve?.Invoke(this, EventArgs.Empty);
+					var eventArgs = new ButtonPressEventArgs(obj);
+					OnRecieve?.Invoke(this, eventArgs);
 				}
 			}
 		}
@@ -74,6 +75,6 @@ namespace FeldsparServer.Messaging
 			Task.Run(() => RunReceive());
 		}
 
-		public event EventHandler OnRecieve;
+		public event EventHandler<ButtonPressEventArgs> OnRecieve;
 	}
 }

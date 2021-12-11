@@ -4,7 +4,7 @@ namespace FeldsparServer.Messaging
 {
 	public interface IMessageBus
 	{
-		event EventHandler OnRecieve;
+		event EventHandler<ButtonPressEventArgs> OnRecieve;
 
 		void Send(IDataObject dataObject, string topic);
 		void StartReceive();
