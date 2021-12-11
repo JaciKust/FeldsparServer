@@ -6,70 +6,101 @@ namespace FeldsparServer.Interactable
 	public static class LifxBulbs
 	{
 		// Red Lamp
-		public static LifxLightBulb alpha { get; } = new LifxLightBulb("d0:73:d5:2b:5b:08", "192.168.0.200", "Alpha");
-		public static LifxLightBulb foxtrot { get; } = new LifxLightBulb("D0:73:D5:40:15:4C", "192.168.0.205", "Foxtrot");
-		public static LifxLightBulb echo { get; } = new LifxLightBulb("D0:73:D5:40:31:1D", "192.168.0.204", "Echo");
+		private static readonly LifxLightBulb Alpha = new LifxLightBulb("d0:73:d5:2b:5b:08", "192.168.0.200", "Alpha");
+		private static readonly LifxLightBulb Foxtrot = new LifxLightBulb("D0:73:D5:40:15:4C", "192.168.0.205", "Foxtrot");
+		private static readonly LifxLightBulb Echo = new LifxLightBulb("D0:73:D5:40:31:1D", "192.168.0.204", "Echo");
 
 		// Yellow Lamp
-		public static LifxLightBulb bravo { get; } = new LifxLightBulb("d0:73:d5:2a:69:0c", "192.168.0.201", "Bravo");
-		public static LifxLightBulb charlie { get; } = new LifxLightBulb("D0:73:D5:2B:BA:14", "192.168.0.202", "Charlie");
-		public static LifxLightBulb delta { get; } = new LifxLightBulb("D0:73:D5:2B:96:41", "192.168.0.203", "Delta");
+		private static readonly LifxLightBulb Bravo = new LifxLightBulb("d0:73:d5:2a:69:0c", "192.168.0.201", "Bravo");
+		private static readonly LifxLightBulb Charlie = new LifxLightBulb("D0:73:D5:2B:BA:14", "192.168.0.202", "Charlie");
+		private static readonly LifxLightBulb Delta = new LifxLightBulb("D0:73:D5:2B:96:41", "192.168.0.203", "Delta");
 
 		// Silver
-		public static LifxLightBulb golf { get; } = new LifxLightBulb("D0:73:D5:2A:93:0C", "192.168.0.206", "Golf");
+		private static readonly LifxLightBulb Golf = new LifxLightBulb("D0:73:D5:2A:93:0C", "192.168.0.206", "Golf");
 
 		// White bedside
-		public static LifxLightBulb hotel { get; } = new LifxLightBulb("D0:73:D5:2B:F7:AB", "192.168.0.207", "Hotel");
+		private static readonly LifxLightBulb Hotel = new LifxLightBulb("D0:73:D5:2B:F7:AB", "192.168.0.207", "Hotel");
 
 		//Black bedside
-		public static LifxLightBulb india { get; } = new LifxLightBulb("D0:73:D5:2C:09:DD", "192.168.0.208", "India");
+		private static readonly LifxLightBulb India = new LifxLightBulb("D0:73:D5:2C:09:DD", "192.168.0.208", "India");
 
-		public static LifxLightBulb[] all_lights = new LifxLightBulb[] {
-			alpha,
-			bravo,
-			charlie,
-			delta,
-			echo,
-			foxtrot,
-			golf,
-			hotel,
-			india
+		// Light Bar
+		private static readonly LifxLightBulb Juliet = new LifxLightBulb("D0:73:D5:59:E4:BE", "192.168.0.209", "Juliet");
+		private static readonly LifxLightBulb Kilo = new LifxLightBulb("D0:73:D5:57:A1:C7", "192.168.0.210", "Kilo");
+
+		private static readonly LifxLightBulb Lima = new LifxLightBulb("D0:73:D5:51:FF:5C", "192.168.0.211", "Lima");
+		private static readonly LifxLightBulb Mike = new LifxLightBulb("D0:73:D5:3E:73:4C", "192.168.0.212", "Mike");
+
+		private static readonly LifxLightBulb[] AllLights = new LifxLightBulb[] {
+			Alpha,
+			Bravo,
+			Charlie,
+			Delta,
+			Echo,
+			Foxtrot,
+			Golf,
+			Hotel,
+			India,
+			Juliet,
+			Kilo,
+			Mike,
+			Lima
 		};
 
-		public static LifxLightBulb[] black_bedside_lamp = new LifxLightBulb[] {
-			india
+		private static readonly LifxLightBulb[] BlackBedsideLights = new LifxLightBulb[] {
+			India
 		};
 
-		public static LifxLightBulb[] white_bedside_lamp = new LifxLightBulb[] {
-			hotel
+		private static readonly LifxLightBulb[] BlackBarLights = new LifxLightBulb[] {
+			Juliet,
+			Kilo
 		};
 
-		public static LifxLightBulb[] red_lights = new LifxLightBulb[] {
-			alpha,
-			foxtrot,
-			echo
+		private static readonly LifxLightBulb[] WhiteBedsideLights = new LifxLightBulb[] {
+			Hotel
 		};
 
-		public static LifxLightBulb[] yellow_lights = new LifxLightBulb[] {
-			bravo,
-			charlie,
-			delta
+		private static readonly LifxLightBulb[] WhiteBarLights = new LifxLightBulb[] {
+			Mike,
+			Lima
 		};
 
-		public static LifxLightBulb[] bedside_lamps = white_bedside_lamp.Concat(black_bedside_lamp).ToArray();
-		public static LifxLightBulb[] desk_lamps = yellow_lights.Concat(red_lights).ToArray();
+		private static readonly LifxLightBulb[] BlackLights = BlackBarLights.Concat(BlackBedsideLights).ToArray();
+		private static readonly LifxLightBulb[] WhiteLights = WhiteBarLights.Concat(WhiteBedsideLights).ToArray();
+		private static readonly LifxLightBulb[] BarLights = BlackBarLights.Concat(WhiteBarLights).ToArray();
 
-		public static LifxLightBulb[] silver_lamp = new LifxLightBulb[] {
-			golf
+		private static readonly LifxLightBulb[] RedLights = new LifxLightBulb[] {
+			Alpha,
+			Foxtrot,
+			Echo
 		};
 
-		public static LifxLamp red_lamp = new LifxLamp(red_lights, "Red");
-		public static LifxLamp yellow_lamp = new LifxLamp(yellow_lights, "Yellow");
-		public static LifxLamp entry_lamp = new LifxLamp(silver_lamp, "Entry");
-		public static LifxLamp jaci_bedside_lamp = new LifxLamp(bedside_lamps, "BedSide");
-		public static LifxLamp all_lamp = new LifxLamp(all_lights, "All");
-		public static LifxLamp desk_lamp = new LifxLamp(desk_lamps, "Desk");
-		public static LifxLamp bed_black_lamp = new LifxLamp(black_bedside_lamp, "Black");
-		public static LifxLamp bed_white_lamp = new LifxLamp(white_bedside_lamp, "White");
+		private static readonly LifxLightBulb[] YellowLights = new LifxLightBulb[] {
+			Bravo,
+			Charlie,
+			Delta
+		};
+
+		private static readonly LifxLightBulb[] BedsideLights = WhiteBedsideLights.Concat(BlackBedsideLights).ToArray();
+		private static readonly LifxLightBulb[] DeskLights = YellowLights.Concat(RedLights).ToArray();
+
+		private static readonly LifxLightBulb[] SilverLights = new LifxLightBulb[] {
+			Golf
+		};
+
+		public static readonly LifxLamp RedLamp = new LifxLamp(RedLights, "Red");
+		public static readonly LifxLamp YellowLamp = new LifxLamp(YellowLights, "Yellow");
+		public static readonly LifxLamp SilverLamp = new LifxLamp(SilverLights, "Silver");
+		public static readonly LifxLamp BlackLamp = new LifxLamp(BlackLights, "Bed - Black");
+		public static readonly LifxLamp WhiteLamp = new LifxLamp(WhiteLights, "Bed - White");
+
+		public static readonly LifxLamp AllLamps = new LifxLamp(AllLights, "All");
+
+		public static readonly LifxLamp DeskLamps = new LifxLamp(DeskLights, "Desk");
+		public static readonly LifxLamp BedSideLamps = new LifxLamp(BedsideLights, "BedSide");
+
+		public static readonly LifxLamp BedsideBlackLamp = new LifxLamp(BlackBedsideLights, "Black");
+		public static readonly LifxLamp BedsideWhiteLamp = new LifxLamp(WhiteBedsideLights, "White");
+		public static readonly LifxLamp BarLamp = new LifxLamp(BarLights, "Bar");
 	}
 }
