@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FeldsparServer.DataObjects
+﻿namespace FeldsparServer.DataObjects
 {
 	public abstract class DataObjectBase : IDataObject
 	{
@@ -18,6 +12,6 @@ namespace FeldsparServer.DataObjects
 
 		public string Topic { get; set; }
 
-		public abstract string ToJson();
+		public abstract string ToJsonString();
 	}
 }

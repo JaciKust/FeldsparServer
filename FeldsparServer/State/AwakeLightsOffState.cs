@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FeldsparServer.DataObjects;
 using FeldsparServer.Interactable;
 using FeldsparServer.Messaging;
@@ -21,6 +17,9 @@ namespace FeldsparServer.State
 			LifxBulbs.AllLamps.TurnOff();
 			var controlPanelState = new PanelStateDataObject(PanelState.Minimal);
 			messageBus.Send(controlPanelState);
+			OutletSwitches.Fan.SetOn();
+			OutletSwitches.PlantLights.SetOn();
+			OutletSwitches.Monitors.SetOn();
 		}
 
 		public override void OnStateLeave(IState newState)

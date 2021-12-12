@@ -37,10 +37,11 @@ namespace FeldsparServer.Messaging
 			{
 				lock (this)
 				{
-					Console.WriteLine($"Sending: [json object]");
+					var jsonString = dataObject.ToJsonString();
+					Console.WriteLine($"Sending: {jsonString}");
 					_socket
-						.SendMoreFrame("A")// dataObject.Topic) // Topic
-						.SendFrame(dataObject.ToJson()); // Message
+						.SendMoreFrame(dataObject.Topic)
+						.SendFrame(jsonString); // Message
 				}
 			}
 		}

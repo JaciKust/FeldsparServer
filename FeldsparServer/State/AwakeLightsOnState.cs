@@ -17,6 +17,9 @@ namespace FeldsparServer.State
 			LifxBulbs.AllLamps.TurnOn(Colors.WhiteDaylight, 0.1);
 			var controlPanelState = new PanelStateDataObject(PanelState.On);
 			messageBus.Send(controlPanelState);
+			OutletSwitches.Fan.SetOff();
+			OutletSwitches.PlantLights.SetOff();
+			OutletSwitches.Monitors.SetOff();
 		}
 
 		public override void OnStateLeave(IState newState)
