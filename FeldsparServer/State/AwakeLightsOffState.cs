@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 using Communication.DataObject;
 using Communication.MessageBus;
 using FeldsparServer.Interactable;
@@ -14,9 +15,16 @@ namespace FeldsparServer.State
 
 		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
 		{
-			LifxBulbs.AllLamps.TurnOff();
-			var controlPanelState = new PanelStateDataObject(PanelState.Minimal);
-			messageBus.Send(controlPanelState);
+			LifxBulbs.AllLamps.TurnOff(2);
+
+			ControlPanels.Desk.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
+			ControlPanels.Desk.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
+
+			ControlPanels.BlackBedside.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
+			ControlPanels.BlackBedside.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
+
+			ControlPanels.Door.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
+
 			OutletSwitches.Fan.SetOn();
 			OutletSwitches.PlantLights.SetOn();
 			OutletSwitches.Monitors.SetOn();

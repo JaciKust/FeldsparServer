@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
+using Common;
 using Communication.MessageBus;
-using LifxNet;
+using LifxClient = LifxNet.LifxClient;
+using LightBulb = LifxNet.LightBulb;
 
 namespace FeldsparServer.Interactable
 {
@@ -47,7 +49,7 @@ namespace FeldsparServer.Interactable
 		public void TurnOn(Color color, double transitionTime = 0.1)
 		{
 			CurrentColor = color;
-			LifxClient.SetColorAsync(_lightBulb, color.LifxColor, (ushort)color.Kelvin);
+			LifxClient.SetColorAsync(_lightBulb, color.ToLifxColor(), (ushort)color.Kelvin, new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: (int)transitionTime*1000));
 		}
 
 		public event EventHandler OnStateChanged;

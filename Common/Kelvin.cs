@@ -1,4 +1,4 @@
-﻿namespace FeldsparServer
+﻿namespace Common
 {
 	public enum Kelvin
 	{

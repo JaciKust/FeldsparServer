@@ -1,4 +1,6 @@
-﻿namespace FeldsparServer.Interactable
+﻿using Common;
+
+namespace FeldsparServer.Interactable
 {
 	public class LifxLamp : ILight
 	{

@@ -1,4 +1,4 @@
-﻿namespace FeldsparServer
+﻿namespace Common
 {
 	public static class Colors
 	{

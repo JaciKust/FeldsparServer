@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaundryServiceUT", "Laundry
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communication", "Communication\Communication.csproj", "{98840024-E853-4CD7-920D-BA87E08DF068}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{F73B9A7C-A834-4BA5-9543-95652069D887}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{98840024-E853-4CD7-920D-BA87E08DF068}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98840024-E853-4CD7-920D-BA87E08DF068}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98840024-E853-4CD7-920D-BA87E08DF068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73B9A7C-A834-4BA5-9543-95652069D887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73B9A7C-A834-4BA5-9543-95652069D887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73B9A7C-A834-4BA5-9543-95652069D887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73B9A7C-A834-4BA5-9543-95652069D887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

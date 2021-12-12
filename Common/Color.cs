@@ -1,6 +1,6 @@
 ﻿using LifxColor = LifxNet.Color;
 
-namespace FeldsparServer
+namespace Common
 {
 	public class Color
 	{
@@ -8,12 +8,19 @@ namespace FeldsparServer
 
 		public Color(LifxColor lifxColor, Kelvin kelvin = Kelvin.BlueIce)
 		{
-			LifxColor = lifxColor;
+			_lifxColor = lifxColor;
 			Kelvin = kelvin;
 		}
 
-		public LifxColor LifxColor { get; private set; }
+		private LifxColor _lifxColor;
 
 		public Kelvin Kelvin { get; private set; }
+
+		public byte Red => _lifxColor.R;
+		public byte Green => _lifxColor.G;
+		public byte Blue => _lifxColor.B;
+
+		public LifxColor ToLifxColor() => _lifxColor;
+		public int[] ToRGBArray() => new int[] { Red, Green, Blue };
 	}
 }
