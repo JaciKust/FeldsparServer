@@ -11,7 +11,7 @@ namespace FeldsparServer.State
 {
 	public class AwakeLightsOffState : BaseState
 	{
-		public override IState HandleMessage(ButtonPressedDataObject buttonPressData)
+		public override IState HandleMessage(DataObjectButtonPressed buttonPressData)
 		{
 			return new AwakeLightsOnState();
 		}

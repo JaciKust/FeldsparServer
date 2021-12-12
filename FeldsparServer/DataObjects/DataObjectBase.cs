@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FeldsparServer.DataObjects
 {
-	public abstract class BaseDataObject : IDataObject
+	public abstract class DataObjectBase : IDataObject
 	{
-		public BaseDataObject(string name, string topic)
+		public DataObjectBase(string name, string topic)
 		{
 			Name = name;
 			Topic = topic;

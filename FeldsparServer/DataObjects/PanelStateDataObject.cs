@@ -2,9 +2,9 @@
 
 namespace FeldsparServer.DataObjects
 {
-	public class PanelStateDataObject : BaseDataObject
+	public class PanelStateDataObject : DataObjectBase
 	{
-		public PanelStateDataObject(string state) : base(nameof(PanelStateDataObject), DataObjectTopic.ControlPanelState)
+		public PanelStateDataObject(string state) : base(nameof(PanelStateDataObject), DataTopic.ControlPanelState)
 		{
 			State = state;
 		}

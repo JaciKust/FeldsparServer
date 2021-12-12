@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace FeldsparServer.DataObjects
 {
-	public class ButtonPressedDataObject : BaseDataObject
+	public class DataObjectButtonPressed : DataObjectBase
 	{
-		public ButtonPressedDataObject(
+		public DataObjectButtonPressed(
 		string buttonName,
 		string group,
 		string category,
 		int triggerPin,
 		double buttonPressTime
-		) : base(nameof(ButtonPressedDataObject), DataObjectTopic.ButtonPress)
+		) : base(nameof(DataObjectButtonPressed), DataTopic.ButtonPress)
 		{
 			ButtonName = buttonName;
 			Group = group;

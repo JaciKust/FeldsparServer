@@ -15,6 +15,6 @@ namespace FeldsparServer.State
 
 		public abstract void OnTick(DateTime currentTime);
 
-		public abstract IState HandleMessage(ButtonPressedDataObject buttonPressData);
+		public abstract IState HandleMessage(DataObjectButtonPressed buttonPressData);
 	}
 }

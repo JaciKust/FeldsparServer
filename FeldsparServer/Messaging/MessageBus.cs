@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 using System.Threading.Tasks;
 using FeldsparServer.DataObjects;
 using NetMQ;
@@ -59,7 +60,7 @@ namespace FeldsparServer.Messaging
 					Console.WriteLine();
 					server.SendFrame("ack");
 
-					var obj = DataObjectParser.FromJson<ButtonPressedDataObject>(msg);
+					var obj = JsonSerializer.Deserialize<DataObjectButtonPressed>(msg);
 					Console.WriteLine($"Press Time: {obj.ButtonPressTime}");
 					var eventArgs = new ButtonPressEventArgs(obj);
 					OnRecieve?.Invoke(this, eventArgs);
