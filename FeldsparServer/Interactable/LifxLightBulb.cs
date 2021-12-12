@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using FeldsparServer.Messaging;
+using Communication.MessageBus;
 using LifxNet;
 
 namespace FeldsparServer.Interactable

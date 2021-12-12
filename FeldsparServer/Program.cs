@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Threading;
-using NetMQ;
-using NetMQ.Sockets;
-using FeldsparServer.Messaging;
-using LifxNet;
-using FeldsparServer.Interactable;
+using Communication.MessageBus;
 
 namespace FeldsparServer
 {
@@ -42,7 +37,7 @@ namespace FeldsparServer
 		static LifxNet.LifxClient client;
 		static void Main(string[] args)
 		{
-			IMessageBus mb = MessageBus.Instance;
+			IMessageBus mb = NetMQMessageBus.Instance;
 			FeldsparRunner runner = new FeldsparRunner(mb);
 			while (true)
 			{

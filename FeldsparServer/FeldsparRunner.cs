@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FeldsparServer.DataObjects;
-using FeldsparServer.Messaging;
+using Communication.MessageBus;
 using FeldsparServer.State;
 
 namespace FeldsparServer
@@ -33,7 +28,8 @@ namespace FeldsparServer
 		private void OnReceiveMessage(object sender, ButtonPressEventArgs e)
 		{
 			IState newState = _currentState.HandleMessage(e.ButtonPressedData);
-			if (newState == null){
+			if (newState == null)
+			{
 				// If the returned state is null no further changes are neded. 
 				return;
 			}

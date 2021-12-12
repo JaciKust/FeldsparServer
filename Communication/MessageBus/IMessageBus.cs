@@ -1,6 +1,11 @@
 ﻿using System;
-using FeldsparServer.DataObjects;
-namespace FeldsparServer.Messaging
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Communication.DataObject;
+
+namespace Communication.MessageBus
 {
 	public interface IMessageBus
 	{

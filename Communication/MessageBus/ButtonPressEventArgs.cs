@@ -1,7 +1,7 @@
 ﻿using System;
-using FeldsparServer.DataObjects;
+using Communication.DataObject;
 
-namespace FeldsparServer.Messaging
+namespace Communication.MessageBus
 {
 	public class ButtonPressEventArgs : EventArgs
 	{

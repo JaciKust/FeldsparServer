@@ -1,4 +1,4 @@
-﻿namespace FeldsparServer.DataObjects
+﻿namespace Communication.DataObject
 {
 	public interface IDataObject
 	{

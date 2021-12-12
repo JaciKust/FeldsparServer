@@ -1,7 +1,12 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace FeldsparServer.Messaging
+namespace Communication
 {
 	public class Pushover
 	{

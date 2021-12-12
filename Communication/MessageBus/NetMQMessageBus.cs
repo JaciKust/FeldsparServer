@@ -1,30 +1,30 @@
 ﻿using System;
 using System.Text.Json;
 using System.Threading.Tasks;
-using FeldsparServer.DataObjects;
+using Communication.DataObject;
 using NetMQ;
 using NetMQ.Sockets;
 
-namespace FeldsparServer.Messaging
+namespace Communication.MessageBus
 {
-	public class MessageBus : IMessageBus
+	public class NetMQMessageBus : IMessageBus
 	{
-		private static MessageBus _instance;
+		private static NetMQMessageBus _instance;
 		private readonly PublisherSocket _socket = null;
 
-		public static MessageBus Instance
+		public static NetMQMessageBus Instance
 		{
 			get
 			{
 				if (_instance == null)
 				{
-					_instance = new MessageBus();
+					_instance = new NetMQMessageBus();
 				}
 				return _instance;
 			}
 		}
 
-		private MessageBus()
+		private NetMQMessageBus()
 		{
 			StartReceive();
 			_socket = new PublisherSocket();

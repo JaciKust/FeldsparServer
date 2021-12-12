@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace FeldsparServer.DataObjects
+namespace Communication.DataObject
 {
 	public class PanelStateDataObject : DataObjectBase
 	{

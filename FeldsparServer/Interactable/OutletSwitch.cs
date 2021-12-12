@@ -1,5 +1,5 @@
-﻿using FeldsparServer.DataObjects;
-using FeldsparServer.Messaging;
+﻿using Communication.DataObject;
+using Communication.MessageBus;
 
 namespace FeldsparServer.Interactable
 {

@@ -1,4 +1,4 @@
-﻿namespace FeldsparServer.DataObjects
+﻿namespace Communication.DataObject
 {
 	public static class PanelState
 	{

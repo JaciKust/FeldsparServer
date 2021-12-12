@@ -1,7 +1,7 @@
 ﻿using System;
-using FeldsparServer.DataObjects;
+using Communication.DataObject;
+using Communication.MessageBus;
 using FeldsparServer.Interactable;
-using FeldsparServer.Messaging;
 
 namespace FeldsparServer.State
 {

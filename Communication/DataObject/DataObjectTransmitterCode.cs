@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace FeldsparServer.DataObjects
+namespace Communication.DataObject
 {
 	public class DataObjectTransmitterCode : DataObjectBase
 	{
@@ -25,7 +25,7 @@ namespace FeldsparServer.DataObjects
 		public string Code { get; }
 
 		public double OneHighTime { get; }
-		public double OneLowTime  { get; }
+		public double OneLowTime { get; }
 		public double ZeroHighTime { get; }
 		public double ZeroLowTime { get; }
 		public double IntervalTime { get; }
