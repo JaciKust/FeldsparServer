@@ -5,30 +5,38 @@ namespace FeldsparServer.Interactable
 	public static class LifxBulbs
 	{
 		// Red Lamp
-		private static readonly LifxLightBulb Alpha = new LifxLightBulb("d0:73:d5:2b:5b:08", "192.168.0.200", "Alpha");
-		private static readonly LifxLightBulb Foxtrot = new LifxLightBulb("D0:73:D5:40:15:4C", "192.168.0.205", "Foxtrot");
-		private static readonly LifxLightBulb Echo = new LifxLightBulb("D0:73:D5:40:31:1D", "192.168.0.204", "Echo");
+		private static readonly LifxLightBulb Alpha = new LifxLightBulb("d0:73:d5:2b:5b:08", "192.168.2.200", "Alpha");
+		private static readonly LifxLightBulb Foxtrot = new LifxLightBulb("D0:73:D5:40:15:4C", "192.168.2.205", "Foxtrot");
+		private static readonly LifxLightBulb Echo = new LifxLightBulb("D0:73:D5:40:31:1D", "192.168.2.204", "Echo");
 
 		// Yellow Lamp
-		private static readonly LifxLightBulb Bravo = new LifxLightBulb("d0:73:d5:2a:69:0c", "192.168.0.201", "Bravo");
-		private static readonly LifxLightBulb Charlie = new LifxLightBulb("D0:73:D5:2B:BA:14", "192.168.0.202", "Charlie");
-		private static readonly LifxLightBulb Delta = new LifxLightBulb("D0:73:D5:2B:96:41", "192.168.0.203", "Delta");
+		private static readonly LifxLightBulb Bravo = new LifxLightBulb("d0:73:d5:2a:93:0c", "192.168.2.201", "Bravo");
+		private static readonly LifxLightBulb Charlie = new LifxLightBulb("D0:73:D5:2B:BA:14", "192.168.2.202", "Charlie");
+		private static readonly LifxLightBulb Delta = new LifxLightBulb("D0:73:D5:2B:96:41", "192.168.2.203", "Delta");
 
 		// Silver
-		private static readonly LifxLightBulb Golf = new LifxLightBulb("D0:73:D5:2A:93:0C", "192.168.0.206", "Golf");
+		private static readonly LifxLightBulb Golf = new LifxLightBulb("D0:73:D5:2A:93:0C", "192.168.2.206", "Golf");
 
 		// White bedside
-		private static readonly LifxLightBulb Hotel = new LifxLightBulb("D0:73:D5:2B:F7:AB", "192.168.0.207", "Hotel");
+		private static readonly LifxLightBulb Hotel = new LifxLightBulb("D0:73:D5:2B:F7:AB", "192.168.2.207", "Hotel");
 
 		//Black bedside
-		private static readonly LifxLightBulb India = new LifxLightBulb("D0:73:D5:2C:09:DD", "192.168.0.208", "India");
+		private static readonly LifxLightBulb India = new LifxLightBulb("D0:73:D5:2C:09:DD", "192.168.2.208", "India");
 
 		// Light Bar
-		private static readonly LifxLightBulb Juliet = new LifxLightBulb("D0:73:D5:59:E4:BE", "192.168.0.209", "Juliet");
-		private static readonly LifxLightBulb Kilo = new LifxLightBulb("D0:73:D5:57:A1:C7", "192.168.0.210", "Kilo");
+		private static readonly LifxLightBulb Juliet = new LifxLightBulb("D0:73:D5:59:E4:BE", "192.168.2.209", "Juliet");
+		private static readonly LifxLightBulb Kilo = new LifxLightBulb("D0:73:D5:57:A1:C7", "192.168.2.210", "Kilo");
 
-		private static readonly LifxLightBulb Lima = new LifxLightBulb("D0:73:D5:51:FF:5C", "192.168.0.211", "Lima");
-		private static readonly LifxLightBulb Mike = new LifxLightBulb("D0:73:D5:3E:73:4C", "192.168.0.212", "Mike");
+		private static readonly LifxLightBulb Lima = new LifxLightBulb("D0:73:D5:51:FF:5C", "192.168.2.211", "Lima");
+		private static readonly LifxLightBulb Mike = new LifxLightBulb("D0:73:D5:3E:73:4C", "192.168.2.212", "Mike");
+
+		// Ledge
+		private static readonly LifxLightBulb November = new LifxLightBulb("D0:73:D5:65:10:44", "192.168.2.213", "November");
+		private static readonly LifxLightBulb Oscar = new LifxLightBulb("D0:73:D5:65:72:EE", "192.168.2.214", "Oscar");
+
+		// Window
+		private static readonly LifxLightBulb Papa = new LifxLightBulb("D0:73:D5:64:96:20", "192.168.2.215", "Papa");
+		private static readonly LifxLightBulb Quebec = new LifxLightBulb("D0:73:D5:65:54:5C", "192.168.2.216", "Quebec");
 
 		private static readonly LifxLightBulb[] AllLights = new LifxLightBulb[] {
 			Alpha,
@@ -43,11 +51,15 @@ namespace FeldsparServer.Interactable
 			Juliet,
 			Kilo,
 			Mike,
-			Lima
+			Lima,
+			November,
+			Oscar,
+			Papa,
+			Quebec
 		};
 
 		private static readonly LifxLightBulb[] BlackBedsideLights = new LifxLightBulb[] {
-			India
+			Hotel
 		};
 
 		private static readonly LifxLightBulb[] BlackBarLights = new LifxLightBulb[] {
@@ -56,7 +68,7 @@ namespace FeldsparServer.Interactable
 		};
 
 		private static readonly LifxLightBulb[] WhiteBedsideLights = new LifxLightBulb[] {
-			Hotel
+			India
 		};
 
 		private static readonly LifxLightBulb[] WhiteBarLights = new LifxLightBulb[] {
@@ -71,20 +83,24 @@ namespace FeldsparServer.Interactable
 		private static readonly LifxLightBulb[] RedLights = new LifxLightBulb[] {
 			Alpha,
 			Foxtrot,
-			Echo
+			Echo,
+			Oscar,
+			Quebec
 		};
 
 		private static readonly LifxLightBulb[] YellowLights = new LifxLightBulb[] {
-			Bravo,
 			Charlie,
-			Delta
+			Delta,
+			November,
+			Papa,
+			Golf
 		};
 
 		private static readonly LifxLightBulb[] BedsideLights = WhiteBedsideLights.Concat(BlackBedsideLights).ToArray();
 		private static readonly LifxLightBulb[] DeskLights = YellowLights.Concat(RedLights).ToArray();
 
 		private static readonly LifxLightBulb[] SilverLights = new LifxLightBulb[] {
-			Golf
+			Bravo,
 		};
 
 		public static readonly LifxLamp RedLamp = new LifxLamp(RedLights, "Red");
@@ -96,7 +112,7 @@ namespace FeldsparServer.Interactable
 		public static readonly LifxLamp AllLamps = new LifxLamp(AllLights, "All");
 
 		public static readonly LifxLamp DeskLamps = new LifxLamp(DeskLights, "Desk");
-		public static readonly LifxLamp BedSideLamps = new LifxLamp(BedsideLights, "BedSide");
+		public static readonly LifxLamp BedSideLamps = new LifxLamp(BedsideLights, "BedSide"); 
 
 		public static readonly LifxLamp BedsideBlackLamp = new LifxLamp(BlackBedsideLights, "Black");
 		public static readonly LifxLamp BedsideWhiteLamp = new LifxLamp(WhiteBedsideLights, "White");
