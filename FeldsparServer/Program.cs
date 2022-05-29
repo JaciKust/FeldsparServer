@@ -39,10 +39,14 @@ namespace FeldsparServer
 		{
 			IMessageBus mb = NetMQMessageBus.Instance;
 			FeldsparRunner runner = new FeldsparRunner(mb);
+			int i = 0;
 			while (true)
 			{
 				Thread.Sleep(1000);
-				Console.WriteLine("\t\ttick");
+				if (i++ % 60 == 0)
+				{
+					Console.WriteLine("\t\ttick");
+				}
 
 				runner.OnTick(DateTime.Now);
 			}

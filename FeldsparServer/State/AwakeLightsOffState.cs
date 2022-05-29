@@ -8,6 +8,7 @@ namespace FeldsparServer.State
 {
 	public class AwakeLightsOffState : BaseState
 	{
+		public override string Name => "Awake OFF";
 		public override IState HandleMessage(DataObjectButtonPressed buttonPressData)
 		{
 			return new AwakeLightsOnState();
@@ -15,19 +16,25 @@ namespace FeldsparServer.State
 
 		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
 		{
+			Console.WriteLine(Name);
 			LifxBulbs.AllLamps.TurnOff(2);
 
-			ControlPanels.Desk.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
-			ControlPanels.Desk.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
+			ControlPanels.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
+			ControlPanels.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
+			ControlPanels.SetSpecialButtonColors(new Color[] { Colors.Black, Colors.DimGreen, Colors.DimRed });
 
-			ControlPanels.BlackBedside.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
-			ControlPanels.BlackBedside.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
-
-			ControlPanels.Door.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
-
-			OutletSwitches.Fan.SetOn();
+			OutletSwitches.Fan.SetOff();
 			OutletSwitches.PlantLights.SetOn();
 			OutletSwitches.Monitors.SetOn();
+
+
+			//Console.WriteLine(Name);
+			//LifxBulbs.AllLamps.TurnOn(Colors.WhiteDaylight, 1);
+			//ControlPanels.SetPrimaryButtonColor(new Color[] { Colors.DimWhite, Colors.WhiteNeutral, Colors.Red });
+			//ControlPanels.SetAccessoryButtonColors(new Color[] { Colors.DimBlue, Colors.Blue, Colors.Black });
+			//ControlPanels.SetSpecialButtonColors(new Color[] { Colors.DimGreen, Colors.Green, Colors.Red });
+			//OutletSwitches.Fan.SetOff();
+			//OutletSwitches.Monitors.SetOn();
 		}
 
 		public override void OnStateLeave(IState newState)

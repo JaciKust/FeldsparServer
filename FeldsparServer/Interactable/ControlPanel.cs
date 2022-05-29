@@ -35,5 +35,16 @@ namespace FeldsparServer.Interactable
 
 			NetMQMessageBus.Instance.Send(dataObjectButtonColorSet);
 		}
+
+		public void SetSpecialButtonColors(Color[] colors)
+		{
+			var dataObjectButtonColorSet = new DataObjectButtonColorSet(colors[0], colors[1], colors[2])
+			{
+				ControlPanelNames = new List<string>() { Name },
+				Categories = new List<string>() { ButtonCategory.Special }
+			};
+
+			NetMQMessageBus.Instance.Send(dataObjectButtonColorSet);
+		}
 	}
 }

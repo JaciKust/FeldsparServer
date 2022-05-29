@@ -6,6 +6,7 @@ namespace FeldsparServer.State
 {
 	public class AsleepLightsOffState : BaseState
 	{
+		public override string Name => "Asleep OFF";
 		public override IState HandleMessage(DataObjectButtonPressed buttonPressData)
 		{
 			throw new NotImplementedException();
