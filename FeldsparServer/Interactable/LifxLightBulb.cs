@@ -49,6 +49,7 @@ namespace FeldsparServer.Interactable
 		public void TurnOn(Color color, double transitionTime = 0.1)
 		{
 			CurrentColor = color;
+			LifxClient.SetDevicePowerStateAsync(_lightBulb, true);
 			LifxClient.SetColorAsync(_lightBulb, color.ToLifxColor(), (ushort)color.Kelvin, new TimeSpan(days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: (int)transitionTime*1000));
 		}
 

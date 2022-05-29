@@ -1,6 +1,7 @@
 ﻿using System;
 using Communication.DataObject;
 using Communication.MessageBus;
+using FeldsparServer.Interactable;
 
 namespace FeldsparServer.State
 {
@@ -12,6 +13,28 @@ namespace FeldsparServer.State
 
 		public abstract void OnTick(DateTime currentTime);
 
-		public abstract IState HandleMessage(DataObjectButtonPressed buttonPressData);
+		protected abstract IState ChildHandleButtonPress(DataObjectButtonPressed buttonPressData);
+
+		public IState HandleButtonPress(DataObjectButtonPressed buttonPressData){
+			return ChildHandleButtonPress(buttonPressData);
+		}
+
+		protected static void HandleAccessories(DataObjectButtonPressed buttonPressData)
+		{
+			if (buttonPressData.GetPressTime() == ButtonTime.Short)
+			{
+				OutletSwitches.Fan.Toggle();
+			}
+			else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+			{
+				OutletSwitches.PlantLights.Toggle();
+			}
+			else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+			{
+				
+				OutletSwitches.Monitors.Toggle();
+
+			}
+		}
 	}
 }

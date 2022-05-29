@@ -72,5 +72,17 @@ namespace FeldsparServer.Interactable
 			MessageBus.Send(data);
 		}
 
+		public void Toggle()
+		{
+			if (isOn)
+			{
+				SetOff();
+			}
+			else
+			{
+				SetOn();
+			}
+		}
+
 	}
 }

@@ -9,9 +9,53 @@ namespace FeldsparServer.State
 	public class AwakeLightsOnState : BaseState
 	{
 		public override string Name => "Awake on";
-		public override IState HandleMessage(DataObjectButtonPressed buttonPressData)
+		protected override IState ChildHandleButtonPress(DataObjectButtonPressed buttonPressData)
 		{
-			return new AwakeLightsOffState();
+			if (buttonPressData.Category == ButtonGroup.Primary)
+			{
+				if (buttonPressData.GetPressTime() == ButtonTime.Short)
+				{
+					return new AwakeLightsOffState();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+				{
+					return new AsleepLightsOffState();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+				{
+
+				}
+			}
+			else if (buttonPressData.Category == ButtonGroup.Accessory)
+			{
+				if (buttonPressData.GetPressTime() == ButtonTime.Short)
+				{
+					OutletSwitches.Fan.Toggle();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+				{
+					OutletSwitches.PlantLights.Toggle();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+				{
+					OutletSwitches.Monitors.Toggle();
+				}
+			}
+			else if (buttonPressData.Category == ButtonGroup.Special) {
+				if (buttonPressData.GetPressTime() == ButtonTime.Short)
+				{
+
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+				{
+
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+				{
+
+				}
+			}
+			return null;
 		}
 
 		public override void OnStateEnter(IState oldState, IMessageBus messageBus)

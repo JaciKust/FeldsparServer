@@ -11,6 +11,6 @@ namespace FeldsparServer.State
 		public void OnStateEnter(IState oldState, IMessageBus messageBus);
 		public void OnStateLeave(IState newState);
 
-		public IState HandleMessage(DataObjectButtonPressed buttonPressData);
+		public IState HandleButtonPress(DataObjectButtonPressed buttonPressData);
 	}
 }

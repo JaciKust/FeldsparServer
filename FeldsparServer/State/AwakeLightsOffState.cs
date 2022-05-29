@@ -9,9 +9,43 @@ namespace FeldsparServer.State
 	public class AwakeLightsOffState : BaseState
 	{
 		public override string Name => "Awake OFF";
-		public override IState HandleMessage(DataObjectButtonPressed buttonPressData)
+		protected override IState ChildHandleButtonPress(DataObjectButtonPressed buttonPressData)
 		{
-			return new AwakeLightsOnState();
+			if (buttonPressData.Category == ButtonGroup.Primary)
+			{
+				if (buttonPressData.GetPressTime() == ButtonTime.Short)
+				{
+					return new AwakeLightsOnState();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+				{
+					return new AsleepLightsOffState();
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+				{
+
+				}
+			}
+			else if (buttonPressData.Category == ButtonGroup.Accessory)
+			{
+				HandleAccessories(buttonPressData);
+			}
+			else if (buttonPressData.Category == ButtonGroup.Special)
+			{
+				if (buttonPressData.GetPressTime() == ButtonTime.Short)
+				{
+
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
+				{
+
+				}
+				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
+				{
+
+				}
+			}
+			return null;
 		}
 
 		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
@@ -26,15 +60,6 @@ namespace FeldsparServer.State
 			OutletSwitches.Fan.SetOff();
 			OutletSwitches.PlantLights.SetOn();
 			OutletSwitches.Monitors.SetOn();
-
-
-			//Console.WriteLine(Name);
-			//LifxBulbs.AllLamps.TurnOn(Colors.WhiteDaylight, 1);
-			//ControlPanels.SetPrimaryButtonColor(new Color[] { Colors.DimWhite, Colors.WhiteNeutral, Colors.Red });
-			//ControlPanels.SetAccessoryButtonColors(new Color[] { Colors.DimBlue, Colors.Blue, Colors.Black });
-			//ControlPanels.SetSpecialButtonColors(new Color[] { Colors.DimGreen, Colors.Green, Colors.Red });
-			//OutletSwitches.Fan.SetOff();
-			//OutletSwitches.Monitors.SetOn();
 		}
 
 		public override void OnStateLeave(IState newState)

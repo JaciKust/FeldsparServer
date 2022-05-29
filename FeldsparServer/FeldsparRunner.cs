@@ -11,7 +11,7 @@ namespace FeldsparServer
 		public FeldsparRunner(IMessageBus messageBus)
 		{
 			_messageBus = messageBus ?? throw new ArgumentNullException(nameof(messageBus));
-			_messageBus.OnRecieve += OnReceiveMessage;
+			_messageBus.OnRecieve += OnButtonPressRecieve;
 			Init();
 		}
 
@@ -25,9 +25,9 @@ namespace FeldsparServer
 			_currentState.OnTick(currentTime);
 		}
 
-		private void OnReceiveMessage(object sender, ButtonPressEventArgs e)
+		private void OnButtonPressRecieve(object sender, ButtonPressEventArgs e)
 		{
-			IState newState = _currentState.HandleMessage(e.ButtonPressedData);
+			IState newState = _currentState.HandleButtonPress(e.ButtonPressedData);
 			if (newState == null)
 			{
 				// If the returned state is null no further changes are neded. 
