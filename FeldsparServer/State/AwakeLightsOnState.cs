@@ -1,6 +1,7 @@
 ﻿using Common;
 using Communication.DataObject;
 using FeldsparServer.Interactable;
+using FeldsparServer.State.Rainbow;
 
 namespace FeldsparServer.State
 {
@@ -45,7 +46,7 @@ namespace FeldsparServer.State
 					}
 					else if (buttonPressData.GetPressTime() == ButtonTime.Long)
 					{
-						// colors mode.
+						return new RainbowState();
 					}
 				}
 				else if (buttonPressData.Category == ButtonGroup.Special)
@@ -157,14 +158,7 @@ namespace FeldsparServer.State
 
 		public override void OnStateEnter(IState oldState)
 		{
-			if (oldState is AsleepLightsOffState || oldState is AsleepLightsOnState)
-			{
-				SetLights();
-			}
-			else
-			{
-				SetLights();
-			}
+			SetLights();
 
 			SetDefaultAccessories();
 			SetDefaultButtonColors();

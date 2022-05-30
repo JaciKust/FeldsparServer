@@ -27,7 +27,7 @@ namespace FeldsparServer.State
 			SetDefaultButtonColors();
 		}
 
-		public IState HandleButtonPress(DataObjectButtonPressed buttonPressData)
+		public virtual IState HandleButtonPress(DataObjectButtonPressed buttonPressData)
 		{
 			try
 			{

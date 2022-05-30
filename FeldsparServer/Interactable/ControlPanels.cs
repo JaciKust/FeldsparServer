@@ -31,6 +31,20 @@ namespace FeldsparServer.Interactable
 			}
 		}
 
+		public static void SetAccessoryButtonColors(Color resting, Color pressed, Color longPressed)
+		{
+			SetAccessoryButtonColors(new Color[] { resting, pressed, longPressed });
+		}
+
+		public static void SetPrimaryButtonColors(Color resting, Color pressed, Color longPressed)
+		{
+			SetPrimaryButtonColors(new Color[] { resting, pressed, longPressed });
+		}
+
+		public static void SetSpecialButtonColors(Color resting, Color pressed, Color longPressed){
+			SetSpecialButtonColors(new Color[] { resting, pressed, longPressed });
+		}
+
 		public static void SetSpecialButtonColors(Color[] colors)
 		{
 			foreach (var panel in AllPanels)
