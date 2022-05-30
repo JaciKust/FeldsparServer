@@ -23,7 +23,7 @@ namespace FeldsparServer.State
 				}
 				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
 				{
-
+					SetLights();
 				}
 			}
 			else if (buttonPressData.Category == ButtonGroup.Accessory)
@@ -48,27 +48,31 @@ namespace FeldsparServer.State
 			return null;
 		}
 
-		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
+		public override void OnStateEnter(IState oldState)
+		{
+			SetLights();
+			SetDefaultAccessories();
+			SetDefaultButtonColors();
+		}
+
+		protected override void SetLights()
 		{
 			LifxBulbs.AllLamps.TurnOff();
 			LifxBulbs.BedsideBlackLamp.TurnOn(Colors.GetWhite(Kelvin.Incandesant, 102));
-			OutletSwitches.Fan.SetOn();
-			OutletSwitches.PlantLights.SetOff();
-			OutletSwitches.Monitors.SetOff();
+		}
 
+		protected override void SetDefaultButtonColors()
+		{
 			ControlPanels.SetPrimaryButtonColors(new Color[] { Colors.DarkRed, Colors.DimRed, Colors.Blue });
 			ControlPanels.SetAccessoryButtonColors(new Color[] { Colors.DarkBlue, Colors.DimBlue, Colors.Blue });
 			ControlPanels.SetSpecialButtonColors(new Color[] { Colors.DarkGreen, Colors.DimGreen, Colors.Green });
 		}
 
-		public override void OnStateLeave(IState newState)
+		protected override void SetDefaultAccessories()
 		{
-			
-		}
-
-		public override void OnTick(DateTime currentTime)
-		{
-			
+			OutletSwitches.Fan.SetOn();
+			OutletSwitches.PlantLights.SetOff();
+			OutletSwitches.Monitors.SetOff();
 		}
 	}
 }

@@ -48,28 +48,30 @@ namespace FeldsparServer.State
 			return null;
 		}
 
-		public override void OnStateEnter(IState oldState, IMessageBus messageBus)
+		public override void OnStateEnter(IState oldState)
 		{
-			Console.WriteLine(Name);
-			LifxBulbs.AllLamps.TurnOff(2);
+			SetLights();
+			SetDefaultButtonColors();
+			SetDefaultAccessories();
+		}
 
+		protected override void SetLights()
+		{
+			LifxBulbs.AllLamps.TurnOff(2);
+		}
+
+		protected override void SetDefaultButtonColors()
+		{
 			ControlPanels.SetPrimaryButtonColors(new Color[] { Colors.DarkWhite, Colors.DimWhite, Colors.DimRed });
 			ControlPanels.SetAccessoryButtonColors(new Color[] { Colors.Black, Colors.DimBlue, Colors.DimRed });
 			ControlPanels.SetSpecialButtonColors(new Color[] { Colors.Black, Colors.DimGreen, Colors.DimRed });
+		}
 
+		protected override void SetDefaultAccessories()
+		{
 			OutletSwitches.Fan.SetOff();
 			OutletSwitches.PlantLights.SetOn();
 			OutletSwitches.Monitors.SetOn();
-		}
-
-		public override void OnStateLeave(IState newState)
-		{
-
-		}
-
-		public override void OnTick(DateTime currentTime)
-		{
-			// No-op
 		}
 	}
 }

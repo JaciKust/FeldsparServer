@@ -8,7 +8,7 @@ namespace FeldsparServer.State
 	{
 		public string Name { get; }
 		public void OnTick(DateTime currentTime);
-		public void OnStateEnter(IState oldState, IMessageBus messageBus);
+		public void OnStateEnter(IState oldState);
 		public void OnStateLeave(IState newState);
 
 		public IState HandleButtonPress(DataObjectButtonPressed buttonPressData);
