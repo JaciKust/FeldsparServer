@@ -1,7 +1,5 @@
-﻿using System;
-using Common;
+﻿using Common;
 using Communication.DataObject;
-using Communication.MessageBus;
 using FeldsparServer.Interactable;
 
 namespace FeldsparServer.State
@@ -9,6 +7,7 @@ namespace FeldsparServer.State
 	public class AsleepLightsOnState : BaseState
 	{
 		public override string Name => "Asleep on";
+		private bool _isInScene = false;
 		protected override IState ChildHandleButtonPress(DataObjectButtonPressed buttonPressData)
 		{
 			if (buttonPressData.Category == ButtonGroup.Primary)
@@ -19,11 +18,26 @@ namespace FeldsparServer.State
 				}
 				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
 				{
-					return new AwakeLightsOnState();
+					if (_isInScene)
+					{
+						return new AwakeLightsOnState(5);
+					}
+					else
+					{
+						var transitionTimeS = 5;
+						LifxBulbs.AllLamps.TurnOff(transitionTimeS);
+						var incandesant = Colors.GetWhite(Kelvin.Incandesant, 90);
+						LifxBulbs.Hotel.TurnOn(incandesant, transitionTimeS);
+						LifxBulbs.India.TurnOn(incandesant, transitionTimeS);
+						var daylight = Colors.GetWhite(Kelvin.Daylight, 255);
+						LifxBulbs.Papa.TurnOn(daylight, transitionTimeS);
+						LifxBulbs.Quebec.TurnOn(daylight, transitionTimeS);
+						_isInScene = true;
+					}
 				}
 				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
 				{
-					SetLights();
+					// Set Alarm. 
 				}
 			}
 			else if (buttonPressData.Category == ButtonGroup.Accessory)

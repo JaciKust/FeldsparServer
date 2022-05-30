@@ -21,9 +21,10 @@ namespace FeldsparServer.State
 
 		protected abstract IState ChildHandleButtonPress(DataObjectButtonPressed buttonPressData);
 
-		public virtual void ClearNavigation()
+		protected virtual void ClearNavigation()
 		{
 			_inAccessoryNavigation = false;
+			SetDefaultButtonColors();
 		}
 
 		public IState HandleButtonPress(DataObjectButtonPressed buttonPressData)
@@ -43,7 +44,6 @@ namespace FeldsparServer.State
 						}
 					}
 					ClearNavigation();
-					SetDefaultButtonColors();
 					return null;
 				}
 				else
@@ -56,6 +56,13 @@ namespace FeldsparServer.State
 			{
 				return null;
 			}
+		}
+
+		protected void SetAccessoriesForScene(){
+			OutletSwitches.Fan.SetOff();
+			OutletSwitches.PlantLights.SetOff();
+			OutletSwitches.AirFilter.SetOff();
+			OutletSwitches.Monitors.SetOff();
 		}
 
 		private bool _inAccessoryNavigation = false;

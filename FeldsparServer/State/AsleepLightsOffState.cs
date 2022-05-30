@@ -19,11 +19,11 @@ namespace FeldsparServer.State
 				}
 				else if (buttonPressData.GetPressTime() == ButtonTime.Medium)
 				{
-					return new AwakeLightsOnState();
+					return new AwakeLightsOnState(5);
 				}
 				else if (buttonPressData.GetPressTime() == ButtonTime.Long)
 				{
-
+					return new AwakeLightsOnState(300);
 				}
 			}
 			else if (buttonPressData.Category == ButtonGroup.Accessory)

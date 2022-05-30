@@ -110,6 +110,16 @@ namespace FeldsparServer.Interactable
 			Bravo,
 		};
 
+		private static readonly LifxLightBulb[] WindowLights = new LifxLightBulb[] {
+			Papa,
+			Quebec
+		};
+
+		private static readonly LifxLightBulb[] LedgeLights = new LifxLightBulb[] {
+			November,
+			Oscar
+		};
+
 		public static readonly LifxLamp RedLamp = new LifxLamp(RedLights, "Red");
 		public static readonly LifxLamp YellowLamp = new LifxLamp(YellowLights, "Yellow");
 		public static readonly LifxLamp SilverLamp = new LifxLamp(SilverLights, "Silver");
@@ -124,5 +134,8 @@ namespace FeldsparServer.Interactable
 		public static readonly LifxLamp BedsideBlackLamp = new LifxLamp(BlackBedsideLights, "Black");
 		public static readonly LifxLamp BedsideWhiteLamp = new LifxLamp(WhiteBedsideLights, "White");
 		public static readonly LifxLamp BarLamp = new LifxLamp(BarLights, "Bar");
+
+		public static readonly LifxLamp WindowLamp = new LifxLamp(WindowLights, "Window");
+		public static readonly LifxLamp LedgeLamp = new LifxLamp(LedgeLights, "Ledge");
 	}
 }
